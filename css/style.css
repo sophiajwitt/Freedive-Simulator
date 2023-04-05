@@ -1,3 +1,19 @@
 html, body {
     margin:0;
   }
+
+.container {
+  position: relative;
+  /* text-align: center; */
+}
+
+h1 {
+  position:fixed;
+  top: 0.2%;
+  right: -15%;
+  transform: translate(-50%, -50%);
+  font-family: 'Rubik Pixels', cursive;
+  font-size: 6em;
+  /* text-align: center; */
+  color:rgba(255, 255, 255, 0.5);
+}
