@@ -4,7 +4,6 @@ html, body {
 
 .container {
   position: relative;
-  /* text-align: center; */
 }
 
 h1 {
@@ -14,6 +13,5 @@ h1 {
   transform: translate(-50%, -50%);
   font-family: 'Rubik Pixels', cursive;
   font-size: 6em;
-  /* text-align: center; */
   color:rgba(255, 255, 255, 0.5);
 }
