@@ -9,11 +9,27 @@ html, body {
 h1 {
   position:fixed;
   top: 10%;
-  right: -16%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Rubik Pixels', cursive;
-  font-size: 6em;
+  font-size: 4em;
   color:rgba(255, 255, 255, 0.5);
+}
+
+.timerDisplay{
+  position: fixed;
+  width: 92%;
+  background: #ffffff;
+  left: 4%;
+  padding: 40px 0;
+  font-family: ‘Roboto mono’,monospace;
+  color:rgba(255, 255, 255, 0.5);
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
 }
 
 * {
