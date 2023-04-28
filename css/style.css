@@ -8,10 +8,20 @@ html, body {
 
 h1 {
   position:fixed;
-  top: 0.2%;
-  right: -15%;
+  top: 10%;
+  right: -16%;
   transform: translate(-50%, -50%);
   font-family: 'Rubik Pixels', cursive;
   font-size: 6em;
   color:rgba(255, 255, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: none;
+  position: static;
 }
