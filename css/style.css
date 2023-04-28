@@ -6,6 +6,16 @@ html, body {
   position: relative;
 }
 
+#background {
+  position: relative;
+}
+
+#sand {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
 h1 {
   position:fixed;
   top: 10%;
@@ -17,14 +27,15 @@ h1 {
 }
 
 .timerDisplay{
-  position: fixed;
-  width: 92%;
-  background: #ffffff;
-  left: 4%;
-  padding: 40px 0;
-  font-family: ‘Roboto mono’,monospace;
+  position:fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff47;
+  padding: 20px 5px;
+  font-family:Arial, Helvetica, sans-serif;
   color:rgba(255, 255, 255, 0.5);
-  font-size: 40px;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: space-around;
