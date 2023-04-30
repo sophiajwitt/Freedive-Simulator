@@ -8,21 +8,21 @@ let int = null;
 // initialize on scroll
 var scrollval = 0;
 window.addEventListener('scroll', () => {
+  console.log(window.scrollY)
   if(scrollval > window.scrollY) {
       // reset when user reaches ocean floor
-      if(window.scrollY = window.innerHeight) {  //Sophia, debug this shit, okay?! it shouldnt be too hard
+      if(window.scrollY == 56250.5) {  
         clearInterval(int);
         [milliseconds,seconds,minutes] = [0,0,0];
         timerRef.innerHTML = '00 : 00';
+        // window.scrollY = 0;
       }
-    console.log('Scroll up')
   } 
   else {
     if(int!==null){
         clearInterval(int);
     }
     int = setInterval(displayTimer,10);
-    console.log('Scroll down')
   }
   scrollval = window.scrollY;
 });
