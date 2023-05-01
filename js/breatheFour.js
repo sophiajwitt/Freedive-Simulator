@@ -7,7 +7,7 @@ var secondsFour = 3; // seconds for HTML
 var count = 0;
 
 function redirectFour() {
-    document.location.href = 'breathe-up.html';
+    document.location.href = 'breathe-up5.html';
 }
 
 function updateSecsFour() {

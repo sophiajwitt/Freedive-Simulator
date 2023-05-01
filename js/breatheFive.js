@@ -4,11 +4,11 @@
 
 // breathe in
 
-var secondsOne = 3; // seconds for HTML
+var secondsOne = 5; // seconds for HTML
 var foo; // variable for clearInterval() function
 
 function redirectOne() {
-    document.location.href = 'breathe-up2.html';
+    document.location.href = 'pre-dive.html';
 
 }
 
