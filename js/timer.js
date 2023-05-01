@@ -2,21 +2,15 @@
 
 let [milliseconds,seconds,minutes] = [0,0,0];
 let timerRef = document.querySelector('.timerDisplay');
+let totalTime = document.querySelector('descendTime');
 let int = null;
 
 
 // initialize on scroll
 var scrollval = 0;
 window.addEventListener('scroll', () => {
-  console.log(window.scrollY)
   if(scrollval > window.scrollY) {
-      // reset when user reaches ocean floor
-      if(window.scrollY == 56250.5) {  
-        clearInterval(int);
-        [milliseconds,seconds,minutes] = [0,0,0];
-        timerRef.innerHTML = '00 : 00';
-        // window.scrollY = 0;
-      }
+    console.log(window.scrollY)
   } 
   else {
     if(int!==null){
@@ -50,3 +44,18 @@ function displayTimer(){
  let ms = milliseconds < 10 ? '00' + milliseconds : milliseconds < 100 ? '0' + milliseconds : milliseconds;
  timerRef.innerHTML = ` ${m} : ${s} `;
 }
+
+// https://techstacker.com/javascript-detect-when-scrolled-to-bottom/
+
+window.onscroll = function() {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+       clearInterval(int);
+       localStorage.setItem("timerRef", JSON.stringify(timerRef));
+       console.log(timerRef);
+       document.location.href = 'finish.html'; 
+       var descend = JSON.parse(localStorage.getItem("timerRef"));
+       totalTime.innerHTML = descend;
+       }
+   }
+
+  

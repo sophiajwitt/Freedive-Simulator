@@ -38,7 +38,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .breath {
     position:fixed;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Lato';
@@ -52,7 +52,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .breathTimer {
     position:fixed;
-    top: 65%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Lato', sans-serif;

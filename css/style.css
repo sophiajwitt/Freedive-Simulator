@@ -63,9 +63,9 @@ h1 {
   font-family: 'Rubik Pixels';
   color:rgba(209, 211, 246, 0.5);
   font-size: 1.5em;
-  display: flex;
+  /* display: flex; */
   text-align: center;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-around;
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(102, 183, 249, 0.25);
