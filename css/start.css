@@ -35,3 +35,31 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   a:link {
     text-decoration: none;
   }
+
+  .breath {
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato';
+    color:rgba(19, 24, 112, 0.5);
+    font-size: 1.7em;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .breathTimer {
+    position:fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+    color:rgba(19, 24, 112, 0.5);
+    font-size: 11em;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+  }
