@@ -94,3 +94,65 @@ svg {
   display: none;
   position: static;
 }
+
+.depth {
+  position:fixed;
+  top: 43%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bungee';
+  color:rgba(255, 255, 255, 0.5);
+  font-size: 1.5em;
+}
+
+.depth span{
+  min-width:0.5em;
+  text-align:center;
+  padding:30px;
+  margin:0px;
+ }
+
+.depthCount {
+  position:fixed;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bungee';
+  color:rgba(255, 255, 255, 0.5);
+  font-size: 1.5em;
+}
+
+.count {
+  position:fixed;
+  top: 57%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bungee';
+  color:rgba(255, 255, 255, 0.5);
+  font-size: 1.5em;
+}
+
+.count span{
+  min-width:0.5em;
+  text-align:center;
+  padding:30px;
+  margin:0px;
+ }
+
+.vl1 {
+  position: fixed;
+  left: 90%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  height: 100px;
+}
+
+.vl2 {
+  position: fixed;
+  left: 90%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  height: 100px;
+}

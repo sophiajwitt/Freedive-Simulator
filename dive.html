@@ -7,19 +7,30 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="js/jquery-3.6.4.min.js"></script>
         <script defer src="js/timer.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Rubik+Pixels&display=swap" rel="stylesheet">
+        <!-- <script defer src="js/curved.js"></script> -->
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300&family=Rubik+Pixels&display=swap" rel="stylesheet">
 
         <title>Freediving Simulator</title>
     </head>
     <body>
         <div class="container">
             <img id="background" src="images/gradient.png" alt="ocean background" width="100%" height="100%">
-            <img id="sand" src="images/sand-floor.png" alt="sand floor" width="100%">
+            <img id="sand" src="images/sand.png" alt="sand floor" width="100%">
             <h1>Freedive Simulator</h1>
             <div class="timerDisplay">
                 00 : 00 
             </div>
+            <div class="vl1" ></div>
+            <div class="depth">
+                DEPTH
+            </div>
+            <div class="depthCount">0</div>
+            <div class="count">
+                COUNT
+            </div>
+            <div class="vl2"></div>
             <!-- edit css to make position absolute so view is above background image -->
             <svg width="316" height="302" viewBox="0 0 316 302" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M316 151C316 234.395 245.261 302 158 302C70.739 302 0 234.395 0 151C0 67.605 70.739 0 158 
@@ -28,6 +39,6 @@
 
                 
         </div>
-        <script type="module" src="js/script.js"></script>
+        <!-- <script type="module" src="js/script.js"></script> -->
     </body>
 </html>
