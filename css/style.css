@@ -53,22 +53,62 @@ h1 {
   bottom: 0px;
 }
 
+.kelp {
+  position: fixed;
+  left: 2%;
+  bottom: -10%;
+}
+
+.finger-coral {
+  position: fixed;
+  left: 60%;
+  bottom: -13%;
+}
+
+.coral {
+  position: fixed;
+  left: 55%;
+  bottom: -15%;
+}
+
+.sand-dollar {
+  position: fixed;
+  left: 25%;
+  bottom: -5%;
+}
+
+.oyster {
+  position: fixed;
+  left: 45%;
+  bottom: 0%;
+}
+
+.fan {
+  position: fixed;
+  left: 70%;
+  bottom: -10%;
+}
+
+.coral-tube {
+  position: fixed;
+  left: -6%;
+  bottom: 0%;
+}
+
 .deep-info {
   position:fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #ffffff4d;
+  background: #ffffff33;
   padding: 40px 40px;
   font-family: 'Rubik Pixels';
   color:rgba(209, 211, 246, 0.5);
   font-size: 1.5em;
-  /* display: flex; */
   text-align: center;
-  /* align-items: center; */
   justify-content: space-around;
   border-radius: 25px;
-  box-shadow: 0 0 20px rgba(102, 183, 249, 0.25);
+  box-shadow: 0 0 20px rgba(102, 183, 249, 0.149);
 }
 
 .restart {
