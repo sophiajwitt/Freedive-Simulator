@@ -1,0 +1,46 @@
+/* inspired by: https://www.geeksforgeeks.org/how-to-create-a-curve-text-using-css3-canvas/ */
+
+.D {
+    transform: translate(-1ch, 35mm) rotate(-40deg);
+}
+
+.E {
+    transform: translate(-4ch, 28mm) rotate(-20deg);
+}
+
+.P {
+    transform: translate(3ch, 1mm) rotate(-0deg);
+}
+
+.T1 {
+    transform: translate(-1ch, 35mm) rotate(15deg);
+}
+
+.H {
+    transform: translate(2px, 14px) rotate(40deg);
+}
+
+.C {
+    transform: translate(1px, 8px) rotate(-5deg);
+}
+
+.O {
+    transform: translate(0px, 5px) rotate(0deg);
+}
+
+.U {
+    transform: translate(-1px, 8px) rotate(5deg);
+}
+
+.N {
+    transform: translate(-2px, 14px) rotate(10deg);
+}
+
+.T2 {
+    transform: translate(-3px, 25px) rotate(15deg);
+}
+
+
+span {
+    display: inline-block;
+}

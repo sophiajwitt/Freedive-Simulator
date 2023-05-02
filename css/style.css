@@ -166,3 +166,107 @@ svg {
   border-left: 2px solid rgba(255, 255, 255, 0.5);
   height: 100px;
 }
+
+.f {
+  position: absolute;
+  top:.75%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff0c;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(19, 24, 112, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+
+.f1 {
+  position: absolute;
+  top:7%;
+  left:25%;
+  transform: translate(-50%, -50%);
+  background: #ffffff3b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(19, 24, 112, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+
+.f2 {
+  position: absolute;
+  top:9%;
+  left:60%;
+  transform: translate(-50%, -50%);
+  background: #ffffff3b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(19, 24, 112, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+
+.f3 {
+  position: absolute;
+  top:12%;
+  left:25%;
+  transform: translate(-50%, -50%);
+  background: #ffffff3b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(19, 24, 112, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+
+.f4 {
+  position: absolute;
+  top:40%;
+  left:65%;
+  transform: translate(-50%, -50%);
+  background: #ffffff3b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(19, 24, 112, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+
+.f5 {
+  position: absolute;
+  top:50%;
+  left:25%;
+  transform: translate(-50%, -50%);
+  background: #ffffff2b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(149, 195, 222, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
+.f6 {
+  position: absolute;
+  top:90%;
+  left:60%;
+  transform: translate(-50%, -50%);
+  background: #ffffff2b;
+  padding: 40px 40px;
+  font-family: 'Rubik Pixels';
+  color:rgba(149, 195, 222, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+}
