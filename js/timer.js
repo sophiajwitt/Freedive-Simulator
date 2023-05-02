@@ -2,7 +2,7 @@
 
 let [milliseconds,seconds,minutes] = [0,0,0];
 let timerRef = document.querySelector('.timerDisplay');
-let totalTime = document.querySelector('descendTime');
+let totalTime = document.querySelector('.descendTime');
 let int = null;
 
 
@@ -51,7 +51,7 @@ window.onscroll = function() {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
        clearInterval(int);
        localStorage.setItem("timerRef", JSON.stringify(timerRef));
-       console.log(timerRef);
+       console.log(timerRef)
        document.location.href = 'finish.html'; 
        var descend = JSON.parse(localStorage.getItem("timerRef"));
        totalTime.innerHTML = descend;

@@ -17,7 +17,7 @@ var $letters = $curvedText.find("span");
   $letters.css({
     position: "absolute",
     height:`${radius}px`,
-    transformOrigin:"bottom center"
+    transformOrigin:"bottom center",
   });
   
   var angleRad = w/(2*radius);
