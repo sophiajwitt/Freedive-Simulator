@@ -1,90 +1,61 @@
-import * as THREE from "../node_modules/three/build/three.module.js";
-import * as YUKA from '../node_modules/yuka/build/yuka.module.js';
-// import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-// import * as SkeletonUtils from '../node_modules/three/examples/jsm/utils/SkeletonUtils.js';
+import * as THREE from "three";
+//import { Flow } from "https://cdn.skypack.dev/three/examples/jsm/modifiers/CurveModifier.js";
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+//import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls.js";
+//import transformSVGPath from "https://000680810.codepen.website/scripts/transformSVGPath.js";
 
-// scene
+// base fish animation code inspired by https://frontend.horse/episode/making-a-fish-swim-with-three-js
+
+// Variables 
+let manta;
+
+
+// SCENE
 const scene = new THREE.Scene();
-const loader = new THREE.TextureLoader();
-scene.background = loader.load( 'images/ocean-floor.png' );
+scene.background = new THREE.Color(0x222299);
 
-// renderer
-const renderer = new THREE.WebGLRenderer({antialias: true});
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
 
-// camera
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 200 );
+// Renderer Settings
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Camera settings
+const camera = new THREE.PerspectiveCamera(
+	75,
+	window.innerWidth / window.innerHeight,
+	0.01,
+	2000
+);
 camera.position.set(0, 1, 2);
 camera.lookAt(0, 0, 0);
 scene.add(camera);
 
-// light
-const light = new THREE.AmbientLight(0xFFFFFF, 1.25, 100);
-scene.add(light);
 
-const vehicleGeometry = new THREE.ConeBufferGeometry(0.1, 0.5, 8);
-vehicleGeometry.rotateX(Math.PI * 0.5);
-const vehicleMaterial = new THREE.MeshNormalMaterial();
-const vehicleMesh = new THREE.Mesh(vehicleGeometry, vehicleMaterial);
-vehicleMesh.matrixAutoUpdate = false;
-scene.add(vehicleMesh);
+// Light settings
+let ambLight = new THREE.AmbientLight(0xffffff, 1.25, 100);
+scene.add(ambLight);
 
-const vehicle = new YUKA.Vehicle();
-vehicle.setRenderComponent(vehicleMesh, sync);
 
-function sync(entity, renderComponent) {
-    renderComponent.matrix.copy(entity.worldMatrix);
+
+const animate = () => {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
 }
 
-const path = new YUKA.Path();
-path.add(new YUKA.Vector3(-4, 0, 4));
-path.add(new YUKA.Vector3(-6, 0, 0));
-path.add(new YUKA.Vector3(-4, 0, -4));
-path.add(new YUKA.Vector3(0, 0, 0));
-path.add(new YUKA.Vector3(4, 0, -4));
-path.add(new YUKA.Vector3(6, 0, 0));
-path.add(new YUKA.Vector3(4, 0, 4));
-path.add(new YUKA.Vector3(0, 0, 6));
 
-vehicle.position.copy(path.current());
+// Load settings
+const loader = new GLTFLoader();
 
-const followPathBehavior = new YUKA.FollowPathBehavior(path, 0.5);
-vehicle.steering.add(followPathBehavior);
+// Manta from https://poly.pizza/m/yzD8b7ZHZm
 
-path.loop = true;
+loader.load("Manta-ray.glb", 
+(gltf) => {
+    manta = gltf.scene;
+    gltf.scene.scale.set(100, 100, 100); 
+    const root = gltf.scene;
+    scene.add(root);
+    // scene.add(manta);
+});
 
-const onPathBehavior = new YUKA.OnPathBehavior(path);
-onPathBehavior.radius = 0.8;
-vehicle.steering.add(onPathBehavior);
-
-const entityManager = new YUKA.EntityManager();
-entityManager.add(vehicle);
-
-const position = [];
-for(let i=0; i < path._waypoints.length; i++) {
-    const waypoint = path._waypoints[i];
-    position.push(waypoint.x, waypoint.y, waypoint.z);
-}
-
-const lineGeometry = new THREE.BufferGeometry();
-lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
-
-const lineMaterial = new THREE.LineBasicMaterial({color: 0xFFFFFF});
-const lines = new THREE.LineLoop(lineGeometry, lineMaterial);
-scene.add(lines);
-
-const time = new YUKA.Time();
-
-
-
-function animate() {
-	requestAnimationFrame( animate );
-
-    const delta = time.update().getDelta();
-    entityManager.update(delta);
-
-	renderer.render( scene, camera );
-}
-
-animate();
+animate()
