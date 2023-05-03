@@ -1,61 +1,105 @@
-import * as THREE from "three";
-//import { Flow } from "https://cdn.skypack.dev/three/examples/jsm/modifiers/CurveModifier.js";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-//import { OrbitControls } from "https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls.js";
-//import transformSVGPath from "https://000680810.codepen.website/scripts/transformSVGPath.js";
+// with help from: https://www.youtube.com/watch?v=eTA3VLEekAo&list=PLjcjAqAnHd1EIxV4FSZIiJZvsdrBc1Xho&index=18
 
-// base fish animation code inspired by https://frontend.horse/episode/making-a-fish-swim-with-three-js
+import * as THREE from "../node_modules/three/build/three.module.js";
+import * as YUKA from '../node_modules/yuka/build/yuka.module.js';
+import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 
-// Variables 
-let manta;
-
-
-// SCENE
+// scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x222299);
+const loader = new THREE.TextureLoader();
+scene.background = loader.load( 'images/ocean-floor.png' );
 
+// renderer
+const renderer = new THREE.WebGLRenderer({antialias: true});
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
 
-// Renderer Settings
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-// Camera settings
-const camera = new THREE.PerspectiveCamera(
-	75,
-	window.innerWidth / window.innerHeight,
-	0.01,
-	2000
-);
-camera.position.set(0, 1, 2);
-camera.lookAt(0, 0, 0);
+// camera
+const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 200 );
+camera.position.set(10, 1, 2);
+camera.lookAt(1, 0, 0);
 scene.add(camera);
 
+// light
+const light = new THREE.AmbientLight(0xFFFFFF, 1.25, 100);
+scene.add(light);
+const ambientLight = new THREE.AmbientLight(0xFFFFFFF);
+scene.add(ambientLight);
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
+directionalLight.position.set(0, 10, 10);
+scene.add(directionalLight);
 
-// Light settings
-let ambLight = new THREE.AmbientLight(0xffffff, 1.25, 100);
-scene.add(ambLight);
+const vehicle = new YUKA.Vehicle();
 
 
-
-const animate = () => {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+function sync(entity, renderComponent) {
+    renderComponent.matrix.copy(entity.worldMatrix);
 }
 
+const path = new YUKA.Path();
+path.add(new YUKA.Vector3(-4, 0, 4));
+path.add(new YUKA.Vector3(-6, 0, 0));
+path.add(new YUKA.Vector3(-4, 0, -4));
+path.add(new YUKA.Vector3(0, 0, 0));
+path.add(new YUKA.Vector3(4, 0, -4));
+path.add(new YUKA.Vector3(6, 0, 0));
+path.add(new YUKA.Vector3(4, 0, 4));
+path.add(new YUKA.Vector3(0, 0, 6));
 
-// Load settings
-const loader = new GLTFLoader();
+vehicle.position.copy(path.current());
+vehicle.maxSpeed = 3;
 
-// Manta from https://poly.pizza/m/yzD8b7ZHZm
+const followPathBehavior = new YUKA.FollowPathBehavior(path, 3);
+vehicle.steering.add(followPathBehavior);
 
-loader.load("Manta-ray.glb", 
-(gltf) => {
-    manta = gltf.scene;
-    gltf.scene.scale.set(100, 100, 100); 
-    const root = gltf.scene;
-    scene.add(root);
-    // scene.add(manta);
+path.loop = true;
+
+path.color = 0x000046;
+
+const onPathBehavior = new YUKA.OnPathBehavior(path);
+vehicle.steering.add(onPathBehavior);
+
+const entityManager = new YUKA.EntityManager();
+entityManager.add(vehicle);
+
+// manta
+const manta = new GLTFLoader();
+manta.load('images/Manta-ray.glb', function(glb) {
+    const model = glb.scene;
+    // model.scale.set(0.5, 0.5, 0.5);
+    scene.add(model);
+    model.matrixAutoUpdate = false;
+    vehicle.scale = new YUKA.Vector3(0.5, 0.5, 0.5);
+    vehicle.setRenderComponent(model, sync);
 });
 
-animate()
+
+
+
+const position = [];
+for(let i=0; i < path._waypoints.length; i++) {
+    const waypoint = path._waypoints[i];
+    position.push(waypoint.x, waypoint.y, waypoint.z);
+}
+
+const lineGeometry = new THREE.BufferGeometry();
+lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
+
+const lineMaterial = new THREE.LineBasicMaterial({color: 0xFFFFFF});
+const lines = new THREE.LineLoop(lineGeometry, lineMaterial);
+// scene.add(lines);
+
+const time = new YUKA.Time();
+
+
+
+function animate() {
+	requestAnimationFrame( animate );
+
+    const delta = time.update().getDelta();
+    entityManager.update(delta);
+
+	renderer.render( scene, camera );
+}
+
+animate();
