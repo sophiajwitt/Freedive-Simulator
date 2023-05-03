@@ -43,6 +43,7 @@ h1 {
   box-shadow: 0 0 20px rgba(0,139,253,0.25);
 }
 
+/* finish page css */
 #deep {
   position: relative;
 }
@@ -125,16 +126,7 @@ h1 {
   justify-content: space-around;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-svg {
-  display: none;
-  position: static;
-}
-
+/* depth counter */
 .depth {
   position:fixed;
   top: 43%;
@@ -189,6 +181,7 @@ svg {
   margin:0px;
  }
 
+/* vertical lines for depth count */
 .vl1 {
   position: fixed;
   left: 90%;
@@ -207,6 +200,8 @@ svg {
   height: 100px;
 }
 
+
+/* freediving facts */
 .f {
   position: absolute;
   top:.75%;

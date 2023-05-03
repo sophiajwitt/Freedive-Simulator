@@ -1,8 +1,6 @@
 // with help from http://jsfiddle.net/bubencode/dn6xc932/
 
-// Countdown timer for redirecting to another URL after several seconds
 
-// breathe in
 
 var secondsOne = 3; // seconds for HTML
 var foo; // variable for clearInterval() function

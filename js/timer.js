@@ -2,9 +2,7 @@
 
 let [milliseconds,seconds,minutes] = [0,0,0];
 let timerRef = document.querySelector('.timerDisplay');
-let totalTime = document.querySelector('.descendTime');
 let int = null;
-
 
 // initialize on scroll
 var scrollval = 0;
@@ -24,7 +22,6 @@ window.addEventListener('scroll', () => {
 
 
 // timer function
-
 function displayTimer(){
     milliseconds+=10;
     if(milliseconds == 1000){
@@ -50,11 +47,7 @@ function displayTimer(){
 window.onscroll = function() {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
        clearInterval(int);
-       localStorage.setItem("timerRef", JSON.stringify(timerRef));
-       console.log(timerRef)
-       document.location.href = 'finish.html'; 
-       var descend = JSON.parse(localStorage.getItem("timerRef"));
-       totalTime.innerHTML = descend;
+       document.location.href = 'finish.html';
        }
    }
 

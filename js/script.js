@@ -66,7 +66,6 @@ entityManager.add(vehicle);
 const manta = new GLTFLoader();
 manta.load('images/Manta-ray.glb', function(glb) {
     const model = glb.scene;
-    // model.scale.set(0.5, 0.5, 0.5);
     scene.add(model);
     model.matrixAutoUpdate = false;
     vehicle.scale = new YUKA.Vector3(0.5, 0.5, 0.5);
@@ -87,7 +86,6 @@ lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(position,
 
 const lineMaterial = new THREE.LineBasicMaterial({color: 0xFFFFFF});
 const lines = new THREE.LineLoop(lineGeometry, lineMaterial);
-// scene.add(lines);
 
 const time = new YUKA.Time();
 

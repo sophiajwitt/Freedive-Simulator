@@ -1,7 +1,3 @@
-// Countdown timer for redirecting to another URL after several seconds
-
-
-// hold
 
 var secondsFour = 3; // seconds for HTML
 var count = 0;
